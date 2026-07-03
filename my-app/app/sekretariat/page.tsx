@@ -223,9 +223,13 @@ export default function SekretariatPage() {
                   </div>
 
                   <div className="relative z-10 mb-8 flex items-center gap-5 border-b-4 border-double border-primary pb-4 sm:gap-6">
-                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-sm bg-primary font-[family-name:var(--font-merriweather)] text-[2.25rem] font-black text-white">
-                      P
-                    </div>
+                    <Image
+                      src="/logo.png"
+                      alt="PIKI Logo"
+                      width={55}
+                      height={30}
+                      className="object-contain ml-4"
+                    />
                     <div className="w-full text-center">
                       <h1 className="font-[family-name:var(--font-merriweather)] text-[20px] font-bold uppercase leading-tight tracking-widest text-primary sm:text-[21px]">
                         Persatuan Inteligensia Kristen Indonesia
