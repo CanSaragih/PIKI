@@ -23,6 +23,7 @@ import {
 import { SiteAnimations } from "@/components/site-animations";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNavigation } from "@/components/site-navigation";
+import { ParallaxHeroImagesDemo } from "@/components/ParallaxHeroImages";
 
 type Stat = {
   value: string;
@@ -86,62 +87,7 @@ export default function Home() {
       <SiteNavigation active="home" />
 
       <main className="pt-24">
-        <section className="hero-mesh relative overflow-hidden pb-16 pt-16 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-28">
-          <div
-            data-orb
-            className="absolute left-10 top-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl"
-          />
-          <div
-            data-orb
-            className="absolute right-10 top-32 h-52 w-52 rounded-full bg-secondary/10 blur-3xl"
-          />
-
-          <div className="mx-auto flex w-full max-w-350 flex-col items-center px-4 text-center sm:px-6 lg:px-8">
-            <div
-              data-hero-item
-              className="glass-card mb-8 inline-flex items-center gap-2 rounded-full border border-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.32em] text-primary"
-            >
-              <BadgeCheck className="h-4 w-4" />
-              Akademis • Kebangsaan • Oikumene
-            </div>
-
-            <h1
-              data-hero-item
-              className="max-w-4xl text-4xl font-bold leading-tight text-primary sm:text-5xl lg:text-[4.25rem]"
-            >
-              Intelektual Kristen Mengabdi untuk Bangsa
-            </h1>
-
-            <p
-              data-hero-item
-              className="mt-6 max-w-2xl text-lg leading-8 text-muted"
-            >
-              Wadah pemikir dan kaum intelektual Kristen Indonesia dalam
-              memberikan kontribusi strategis bagi pembangunan nasional melalui
-              penguasaan ilmu pengetahuan dan nilai-nilai kebangsaan.
-            </p>
-
-            <div
-              data-hero-item
-              className="mt-10 flex flex-col gap-4 sm:flex-row"
-            >
-              <Link
-                href="/dashboard"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
-              >
-                <Compass className="h-4 w-4" />
-                Pelajari Visi &amp; Misi
-              </Link>
-              <Link
-                href="/journals"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary px-8 py-4 text-sm font-semibold text-primary transition-all hover:bg-primary/5"
-              >
-                <Download className="h-4 w-4" />
-                Unduh Annual Report
-              </Link>
-            </div>
-          </div>
-        </section>
+        <ParallaxHeroImagesDemo />
 
         <section
           data-reveal
