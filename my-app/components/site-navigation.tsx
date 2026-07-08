@@ -6,11 +6,12 @@ import { BadgeCheck, Menu, X } from "lucide-react";
 import Image from "next/image";
 
 type SiteNavigationProps = {
-  active: "home" | "dashboard" | "membership" | "journals";
+  active: "home" | "berita" | "dashboard" | "membership" | "journals";
 };
 
 const navItems = [
   { href: "/", label: "Beranda", key: "home" },
+  { href: "/berita", label: "Portal Berita", key: "berita" },
   { href: "/journals", label: "Portal Jurnal", key: "journals" },
   { href: "/dashboard", label: "Satu Data & KTA", key: "dashboard" },
   { href: "/sekretariat", label: "E-Sekretariat", key: "membership" },
@@ -49,7 +50,7 @@ export function SiteNavigation({ active }: SiteNavigationProps) {
               <Link
                 key={item.key}
                 href={item.href}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                className={`rounded-full px-3 py-2 text-sm font-medium transition-all xl:px-4 ${
                   isActive
                     ? "bg-primary text-white shadow-sm"
                     : "text-muted hover:bg-primary/5 hover:text-primary"

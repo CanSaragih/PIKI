@@ -65,6 +65,14 @@ export function SiteFooter() {
               <li>
                 <Link
                   className="transition-colors hover:text-secondary-soft"
+                  href="/berita"
+                >
+                  Portal Berita
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="transition-colors hover:text-secondary-soft"
                   href="/journals"
                 >
                   Portal Jurnal
@@ -81,17 +89,9 @@ export function SiteFooter() {
               <li>
                 <Link
                   className="transition-colors hover:text-secondary-soft"
-                  href="/membership"
+                  href="/sekretariat"
                 >
                   E-Sekretariat
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="transition-colors hover:text-secondary-soft"
-                  href="/membership"
-                >
-                  Bantuan Anggota
                 </Link>
               </li>
             </ul>

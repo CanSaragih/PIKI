@@ -24,6 +24,7 @@ import { SiteAnimations } from "@/components/site-animations";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNavigation } from "@/components/site-navigation";
 import { ParallaxHeroImagesDemo } from "@/components/ParallaxHeroImages";
+import { getLatestBerita } from "@/lib/berita";
 
 type Stat = {
   value: string;
@@ -54,25 +55,7 @@ const stats: Stat[] = [
   },
 ];
 
-const articles = [
-  {
-    category: "Kegiatan DPD",
-    date: "12 Okt 2023",
-    title:
-      "Konsolidasi Intelektual di Wilayah Timur: Tantangan Pendidikan 2024",
-    body: "Pertemuan rutin Dewan Pimpinan Daerah membahas pemerataan kualitas pendidikan tinggi dan peran cendekiawan lokal dalam transformasi digital pedesaan.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDSJjWb2WmxhxoWm9Kq4Ct0DbxAYwdMuFqm4xincGwbp9o_rH5pIg_ROib7Mqz5hDZFAY23OzlCpeNkh3-FS7SJuELPDnDyQwENcYQO1lM4BRY-RUuNGCUNakKmuvgHd7Z1nm0YUD3HCJLZpEJQnhQ8b8WNtKY6XlzMU-EBrLeKWCBRyVG59COC920wINOUwiRAdNHJB_mvxcKijWvIK3s5IwpNhiH1m3G-nUALteXjVZAg6Uw9pUSX_w",
-  },
-  {
-    category: "Publikasi",
-    date: "08 Okt 2023",
-    title: "Review Kebijakan: Keadilan Sosial dalam Perspektif Oikumene",
-    body: "Jurnal PIKI edisi terbaru merilis kajian mendalam mengenai implementasi sila kelima dalam kerangka kebijakan publik kontemporer di Indonesia.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBX5yEWWU7S5K0VL4TFkvy3jWRFABSq9X9Go3L2VsqMD3FqkAC0eHDiWfePOs_eKi1-MZwgbi-7uT0HiW4_I7BnsYtUhTofuBGihw0pGoei0rwkPOtgMM2hxKKt--8mjsvV4o3tK83P749gWL0At6biOolBp0wfHV9d46EInkwQSkbIMykIVYqbrKfvSqDSE9J0oSIQg8Jglp7-evnOZIP-f1FxmsswSVO0VdM9SHmLYoEvHdgrOelDbQ",
-  },
-];
+const articles = getLatestBerita(2);
 
 const socialLinks = [
   { label: "Facebook", icon: FaFacebookF },
@@ -214,7 +197,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Link
-                  href="/journals"
+                  href="/berita"
                   className="hidden items-center gap-2 text-sm font-semibold text-primary transition-all hover:gap-3 md:flex"
                 >
                   Arsip Berita <ArrowRight className="h-4 w-4" />
@@ -224,7 +207,7 @@ export default function Home() {
               <div className="grid gap-8 md:grid-cols-2">
                 {articles.map((article) => (
                   <article
-                    key={article.title}
+                    key={article.slug}
                     data-reveal
                     className="group overflow-hidden rounded-2xl border border-border bg-surface transition-all hover:shadow-xl"
                   >
@@ -239,9 +222,7 @@ export default function Home() {
                     </div>
                     <div className="p-6">
                       <div className="mb-4 flex items-center gap-2">
-                        <span
-                          className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] ${article.category === "Publikasi" ? "bg-secondary/10 text-secondary" : "bg-primary/5 text-primary"}`}
-                        >
+                        <span className="rounded-full bg-primary/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] text-primary">
                           {article.category}
                         </span>
                         <span className="text-xs text-muted">
@@ -252,10 +233,10 @@ export default function Home() {
                         {article.title}
                       </h3>
                       <p className="mb-6 line-clamp-3 text-sm leading-7 text-muted">
-                        {article.body}
+                        {article.excerpt}
                       </p>
                       <Link
-                        href="/journals"
+                        href={`/berita/${article.slug}`}
                         className="inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors hover:text-secondary"
                       >
                         Baca Selengkapnya <ExternalLink className="h-4 w-4" />
